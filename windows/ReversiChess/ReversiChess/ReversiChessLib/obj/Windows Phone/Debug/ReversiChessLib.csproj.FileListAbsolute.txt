@@ -1,0 +1,6 @@
+E:\Projects\ReversiChess\ReversiChess\ReversiChessLib\bin\Windows Phone\Debug\ReversiChessLib.dll
+E:\Projects\ReversiChess\ReversiChess\ReversiChessLib\bin\Windows Phone\Debug\ReversiChessLib.pdb
+E:\Projects\ReversiChess\ReversiChess\ReversiChessLib\obj\Windows Phone\Debug\ResolveAssemblyReference.cache
+E:\Projects\ReversiChess\ReversiChess\ReversiChessLib\obj\Windows Phone\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+E:\Projects\ReversiChess\ReversiChess\ReversiChessLib\obj\Windows Phone\Debug\ReversiChessLib.dll
+E:\Projects\ReversiChess\ReversiChess\ReversiChessLib\obj\Windows Phone\Debug\ReversiChessLib.pdb

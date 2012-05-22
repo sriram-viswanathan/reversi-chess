@@ -1,0 +1,15 @@
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\Bin\Debug\ApplicationIcon.png
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\Bin\Debug\Background.png
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\Bin\Debug\ReversiChess.dll
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\Bin\Debug\ReversiChess.pdb
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\Bin\Debug\ReversiChessLib.dll
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\Bin\Debug\ReversiChessLib.pdb
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\obj\Debug\App.g.i.cs
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\obj\Debug\MainPage.g.i.cs
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\obj\Debug\ReversiChess.g.resources
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\obj\Debug\ReversiChess.dll
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\obj\Debug\ReversiChess.pdb
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\Bin\Debug\AppManifest.xaml
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\Bin\Debug\ReversiChess.xap
+E:\Projects\ReversiChess\ReversiChess\ReversiChess\obj\Debug\XapCacheFile.xml

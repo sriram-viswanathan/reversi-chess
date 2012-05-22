@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{FD70E6A8-EA80-43F0-8EAC-32924CFF28C0}</ContentProjectGUID>
+      <TargetPlatform>WindowsPhone</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>E:\Projects\ReversiChess\ReversiChess\ReversiChessLibContent\</RootDirectory>
+      <LoggerRootDirectory>E:\Projects\ReversiChess\ReversiChess\ReversiChessLib\</LoggerRootDirectory>
+      <IntermediateDirectory>E:\Projects\ReversiChess\ReversiChess\ReversiChessLib\obj\Windows Phone\Debug\</IntermediateDirectory>
+      <OutputDirectory>E:\Projects\ReversiChess\ReversiChess\ReversiChessLib\bin\Windows Phone\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-01-15T13:41:00.4220751+05:30</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

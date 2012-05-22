@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReversiChess", "ReversiChess\ReversiChess\ReversiChess.csproj", "{65D4D210-7795-465F-867F-96554F71348E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReversiChessLib", "ReversiChess\ReversiChessLib\ReversiChessLib.csproj", "{839E16AA-A0AB-4914-8353-8F26CA1B6F99}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "ReversiChessLibContent", "ReversiChess\ReversiChessLibContent\ReversiChessLibContent.contentproj", "{FD70E6A8-EA80-43F0-8EAC-32924CFF28C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Windows Phone = Debug|Windows Phone
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Windows Phone = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65D4D210-7795-465F-867F-96554F71348E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65D4D210-7795-465F-867F-96554F71348E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65D4D210-7795-465F-867F-96554F71348E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{65D4D210-7795-465F-867F-96554F71348E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{65D4D210-7795-465F-867F-96554F71348E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{65D4D210-7795-465F-867F-96554F71348E}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
+		{65D4D210-7795-465F-867F-96554F71348E}.Debug|Windows Phone.ActiveCfg = Debug|Any CPU
+		{65D4D210-7795-465F-867F-96554F71348E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65D4D210-7795-465F-867F-96554F71348E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65D4D210-7795-465F-867F-96554F71348E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{65D4D210-7795-465F-867F-96554F71348E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{65D4D210-7795-465F-867F-96554F71348E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{65D4D210-7795-465F-867F-96554F71348E}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
+		{65D4D210-7795-465F-867F-96554F71348E}.Release|Windows Phone.ActiveCfg = Release|Any CPU
+		{839E16AA-A0AB-4914-8353-8F26CA1B6F99}.Debug|Any CPU.ActiveCfg = Debug|Windows Phone
+		{839E16AA-A0AB-4914-8353-8F26CA1B6F99}.Debug|Mixed Platforms.ActiveCfg = Debug|Windows Phone
+		{839E16AA-A0AB-4914-8353-8F26CA1B6F99}.Debug|Mixed Platforms.Build.0 = Debug|Windows Phone
+		{839E16AA-A0AB-4914-8353-8F26CA1B6F99}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{839E16AA-A0AB-4914-8353-8F26CA1B6F99}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{839E16AA-A0AB-4914-8353-8F26CA1B6F99}.Release|Any CPU.ActiveCfg = Release|Windows Phone
+		{839E16AA-A0AB-4914-8353-8F26CA1B6F99}.Release|Mixed Platforms.ActiveCfg = Release|Windows Phone
+		{839E16AA-A0AB-4914-8353-8F26CA1B6F99}.Release|Mixed Platforms.Build.0 = Release|Windows Phone
+		{839E16AA-A0AB-4914-8353-8F26CA1B6F99}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{839E16AA-A0AB-4914-8353-8F26CA1B6F99}.Release|Windows Phone.Build.0 = Release|Windows Phone
+		{FD70E6A8-EA80-43F0-8EAC-32924CFF28C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD70E6A8-EA80-43F0-8EAC-32924CFF28C0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FD70E6A8-EA80-43F0-8EAC-32924CFF28C0}.Debug|Windows Phone.ActiveCfg = Debug|Any CPU
+		{FD70E6A8-EA80-43F0-8EAC-32924CFF28C0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD70E6A8-EA80-43F0-8EAC-32924CFF28C0}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FD70E6A8-EA80-43F0-8EAC-32924CFF28C0}.Release|Windows Phone.ActiveCfg = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
