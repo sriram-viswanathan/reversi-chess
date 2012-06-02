@@ -17,12 +17,16 @@
     NSMutableArray *revealedPieces;
     
     IBOutlet UIView *boardContainer;
+    IBOutlet UIButton *randomizeButton;
 }
 
 @property (nonatomic,retain) IBOutlet UIView *boardContainer;
+@property (nonatomic,retain) IBOutlet UIButton *randomizeButton;
 @property (nonatomic,retain) IBOutlet ChessBoardView *chessBoardView;
 @property (nonatomic,retain) IBOutlet ChessBoardLayout *chessBoardLayout;
 
 @property (nonatomic, retain) IBOutlet NSMutableArray *revealedPieces;
+
+- (IBAction) newGame;
 
 @end

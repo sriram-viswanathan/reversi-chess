@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE1D418D15720F4700F450C9 /* light-square-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1D418B15720F4700F450C9 /* light-square-highlighted.png */; };
+		CE1D418F15720F7C00F450C9 /* dark-square-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1D418E15720F7C00F450C9 /* dark-square-highlighted.png */; };
 		CE6F2AFE1567ACD700DC2222 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6F2AFD1567ACD700DC2222 /* UIKit.framework */; };
 		CE6F2B001567ACD700DC2222 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6F2AFF1567ACD700DC2222 /* Foundation.framework */; };
 		CE6F2B021567ACD700DC2222 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6F2B011567ACD700DC2222 /* CoreGraphics.framework */; };
@@ -21,22 +23,24 @@
 		CE6F2B241567B5BB00DC2222 /* light-square.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F2B221567B5BB00DC2222 /* light-square.png */; };
 		CE6F2B28156808B300DC2222 /* ChessPiece.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F2B27156808B300DC2222 /* ChessPiece.m */; };
 		CE6F2B2B15680E2000DC2222 /* ChessBoardLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F2B2A15680E2000DC2222 /* ChessBoardLayout.m */; };
-		CE6F2B38156812E900DC2222 /* bb.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F2B2C156812E900DC2222 /* bb.png */; };
 		CE6F2B39156812E900DC2222 /* bk.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F2B2D156812E900DC2222 /* bk.png */; };
 		CE6F2B3A156812E900DC2222 /* bn.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F2B2E156812E900DC2222 /* bn.png */; };
 		CE6F2B3B156812E900DC2222 /* bp.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F2B2F156812E900DC2222 /* bp.png */; };
 		CE6F2B3C156812E900DC2222 /* bq.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F2B30156812E900DC2222 /* bq.png */; };
 		CE6F2B3D156812E900DC2222 /* br.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F2B31156812E900DC2222 /* br.png */; };
-		CE6F2B3E156812E900DC2222 /* wb.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F2B32156812E900DC2222 /* wb.png */; };
 		CE6F2B3F156812E900DC2222 /* wk.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F2B33156812E900DC2222 /* wk.png */; };
 		CE6F2B40156812E900DC2222 /* wn.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F2B34156812E900DC2222 /* wn.png */; };
 		CE6F2B41156812E900DC2222 /* wp.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F2B35156812E900DC2222 /* wp.png */; };
 		CE6F2B42156812E900DC2222 /* wq.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F2B36156812E900DC2222 /* wq.png */; };
 		CE6F2B43156812E900DC2222 /* wr.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6F2B37156812E900DC2222 /* wr.png */; };
 		CE6F2B4A1568C57600DC2222 /* ChessConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F2B491568C57600DC2222 /* ChessConstants.m */; };
+		CEDD7AEA157685A4009D2C32 /* bb.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDD7AE8157685A4009D2C32 /* bb.png */; };
+		CEDD7AEB157685A4009D2C32 /* wb.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDD7AE9157685A4009D2C32 /* wb.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE1D418B15720F4700F450C9 /* light-square-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light-square-highlighted.png"; sourceTree = "<group>"; };
+		CE1D418E15720F7C00F450C9 /* dark-square-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark-square-highlighted.png"; sourceTree = "<group>"; };
 		CE6F2AF91567ACD700DC2222 /* Chess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6F2AFD1567ACD700DC2222 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE6F2AFF1567ACD700DC2222 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -59,13 +63,11 @@
 		CE6F2B27156808B300DC2222 /* ChessPiece.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChessPiece.m; sourceTree = "<group>"; };
 		CE6F2B2915680E2000DC2222 /* ChessBoardLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessBoardLayout.h; sourceTree = "<group>"; };
 		CE6F2B2A15680E2000DC2222 /* ChessBoardLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChessBoardLayout.m; sourceTree = "<group>"; };
-		CE6F2B2C156812E900DC2222 /* bb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bb.png; sourceTree = "<group>"; };
 		CE6F2B2D156812E900DC2222 /* bk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bk.png; sourceTree = "<group>"; };
 		CE6F2B2E156812E900DC2222 /* bn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bn.png; sourceTree = "<group>"; };
 		CE6F2B2F156812E900DC2222 /* bp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bp.png; sourceTree = "<group>"; };
 		CE6F2B30156812E900DC2222 /* bq.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bq.png; sourceTree = "<group>"; };
 		CE6F2B31156812E900DC2222 /* br.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = br.png; sourceTree = "<group>"; };
-		CE6F2B32156812E900DC2222 /* wb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wb.png; sourceTree = "<group>"; };
 		CE6F2B33156812E900DC2222 /* wk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wk.png; sourceTree = "<group>"; };
 		CE6F2B34156812E900DC2222 /* wn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wn.png; sourceTree = "<group>"; };
 		CE6F2B35156812E900DC2222 /* wp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wp.png; sourceTree = "<group>"; };
@@ -73,6 +75,8 @@
 		CE6F2B37156812E900DC2222 /* wr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wr.png; sourceTree = "<group>"; };
 		CE6F2B481568C57600DC2222 /* ChessConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessConstants.h; sourceTree = "<group>"; };
 		CE6F2B491568C57600DC2222 /* ChessConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChessConstants.m; sourceTree = "<group>"; };
+		CEDD7AE8157685A4009D2C32 /* bb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bb.png; sourceTree = "<group>"; };
+		CEDD7AE9157685A4009D2C32 /* wb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wb.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,10 +125,10 @@
 			children = (
 				CE6F2B251567F5AA00DC2222 /* XIB */,
 				CE6F2B201567B5BB00DC2222 /* images */,
-				CE6F2B481568C57600DC2222 /* ChessConstants.h */,
-				CE6F2B491568C57600DC2222 /* ChessConstants.m */,
 				CE6F2B0C1567ACD700DC2222 /* ChessAppDelegate.h */,
 				CE6F2B0D1567ACD700DC2222 /* ChessAppDelegate.m */,
+				CE6F2B481568C57600DC2222 /* ChessConstants.h */,
+				CE6F2B491568C57600DC2222 /* ChessConstants.m */,
 				CE6F2B0F1567ACD700DC2222 /* ChessViewController.h */,
 				CE6F2B101567ACD700DC2222 /* ChessViewController.m */,
 				CE6F2B1D1567AD7000DC2222 /* ChessBoardView.h */,
@@ -152,13 +156,15 @@
 		CE6F2B201567B5BB00DC2222 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				CE6F2B2C156812E900DC2222 /* bb.png */,
+				CEDD7AE8157685A4009D2C32 /* bb.png */,
+				CEDD7AE9157685A4009D2C32 /* wb.png */,
+				CE1D418E15720F7C00F450C9 /* dark-square-highlighted.png */,
+				CE1D418B15720F4700F450C9 /* light-square-highlighted.png */,
 				CE6F2B2D156812E900DC2222 /* bk.png */,
 				CE6F2B2E156812E900DC2222 /* bn.png */,
 				CE6F2B2F156812E900DC2222 /* bp.png */,
 				CE6F2B30156812E900DC2222 /* bq.png */,
 				CE6F2B31156812E900DC2222 /* br.png */,
-				CE6F2B32156812E900DC2222 /* wb.png */,
 				CE6F2B33156812E900DC2222 /* wk.png */,
 				CE6F2B34156812E900DC2222 /* wn.png */,
 				CE6F2B35156812E900DC2222 /* wp.png */,
@@ -235,18 +241,20 @@
 				CE6F2B171567ACD800DC2222 /* ChessViewController_iPad.xib in Resources */,
 				CE6F2B231567B5BB00DC2222 /* dark-square.png in Resources */,
 				CE6F2B241567B5BB00DC2222 /* light-square.png in Resources */,
-				CE6F2B38156812E900DC2222 /* bb.png in Resources */,
 				CE6F2B39156812E900DC2222 /* bk.png in Resources */,
 				CE6F2B3A156812E900DC2222 /* bn.png in Resources */,
 				CE6F2B3B156812E900DC2222 /* bp.png in Resources */,
 				CE6F2B3C156812E900DC2222 /* bq.png in Resources */,
 				CE6F2B3D156812E900DC2222 /* br.png in Resources */,
-				CE6F2B3E156812E900DC2222 /* wb.png in Resources */,
 				CE6F2B3F156812E900DC2222 /* wk.png in Resources */,
 				CE6F2B40156812E900DC2222 /* wn.png in Resources */,
 				CE6F2B41156812E900DC2222 /* wp.png in Resources */,
 				CE6F2B42156812E900DC2222 /* wq.png in Resources */,
 				CE6F2B43156812E900DC2222 /* wr.png in Resources */,
+				CE1D418D15720F4700F450C9 /* light-square-highlighted.png in Resources */,
+				CE1D418F15720F7C00F450C9 /* dark-square-highlighted.png in Resources */,
+				CEDD7AEA157685A4009D2C32 /* bb.png in Resources */,
+				CEDD7AEB157685A4009D2C32 /* wb.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +395,7 @@
 				CE6F2B1C1567ACD800DC2222 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

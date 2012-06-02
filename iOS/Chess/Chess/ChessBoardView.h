@@ -12,12 +12,15 @@
 
 @interface ChessBoardView : UIView {
     UIView *squareBlocks;
-    UIView *pieceBlocks;
     
     NSMutableDictionary *pieces;
+    NSMutableArray *piecesArrayToUse;
 }
 
-- (void) initLayout: (ChessBoardLayout *)chessBoardLayout;
+- (void) initLayout: (ChessBoardLayout *)chessBoardLayout randomizePieces:(BOOL) randomizePieces;
+- (void) clearLayout;
 - (void) refreshLayout: (ChessBoardLayout *)chessBoardLayout revealedPieces: (NSMutableArray *)revealedPieces;
+- (void) highlightBlocks: (NSArray *)blockNumbers removeHighlighting: (BOOL) removeHighlighting;
+
 
 @end
