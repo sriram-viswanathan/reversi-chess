@@ -17,6 +17,8 @@
 #define CHESS_PIECE_MOVED @"chessPieceMoved"
 #define CHESS_PIECE_DROPPED @"chessPieceDropped"
 
+#define CHESS_BLOCK_SELECTED @"chessBlockSelected"
+
 extern NSString *const WHITE_KING;
 extern NSString *const WHITE_QUEEN;
 extern NSString *const WHITE_BISHOP_ON_WHITE;

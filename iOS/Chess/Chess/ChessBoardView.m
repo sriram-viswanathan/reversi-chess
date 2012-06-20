@@ -18,28 +18,31 @@
     
     pieces = [[NSMutableDictionary alloc] init];
         
-    UIImage *firstSquareImage;
-    UIImage *nextSquareImage;
+    NSString *firstSquareImage;
+    NSString *nextSquareImage;
+    ChessBlock *chessBlock;
     
-    UIImageView *squareImageView;
+    UIButton *squareImageView;
     CGRect frame;
     
     for (int i=0; i<CHESS_ROW_COUNT; i++) {
         
         if (i%2) {
-            firstSquareImage = [UIImage imageNamed:@"dark-square.png"];
-            nextSquareImage = [UIImage imageNamed:@"light-square.png"];
+            firstSquareImage = @"dark-square.png";
+            nextSquareImage = @"light-square.png";
         } else {
-            firstSquareImage = [UIImage imageNamed:@"light-square.png"];
-            nextSquareImage = [UIImage imageNamed:@"dark-square.png"];
+            firstSquareImage = @"light-square.png";
+            nextSquareImage = @"dark-square.png";
         }
         
         for (int j=0; j<CHESS_COLUMN_COUNT; j++) {
             
+            chessBlock = [[ChessBlock alloc] init];
+            
             if (j%2) {
-                squareImageView = [[UIImageView alloc] initWithImage:firstSquareImage];
+                squareImageView = [chessBlock initBlockWithImage:firstSquareImage];
             } else {
-                squareImageView = [[UIImageView alloc] initWithImage:nextSquareImage];
+                squareImageView = [chessBlock initBlockWithImage:nextSquareImage];
             }
             
             frame = squareImageView.frame;
@@ -58,33 +61,6 @@
     return self;
 }
 
-- (void) initLayout: (ChessBoardLayout *)chessBoardLayout randomizePieces:(BOOL)randomizePieces {
-    ChessPiece *chessPiece;
-    
-    piecesArrayToUse = [[NSMutableArray alloc] init];
-    
-    if (randomizePieces) {
-        piecesArrayToUse = [chessBoardLayout chessPiecesRandomizedPositions];
-    } else {
-        piecesArrayToUse = [chessBoardLayout chessPiecesDefaultPositions];
-    }
-    
-    for (unsigned int i=0; i<CHESS_BLOCKS; i++) {
-        if ([piecesArrayToUse objectAtIndex:i] != EMPTY) {
-            chessPiece = [[[ChessPiece alloc] initWithFrame:CGRectMake(0, 0, SQUARE_SIZE, SQUARE_SIZE)] initWithPiece:[piecesArrayToUse objectAtIndex:i]];
-            [chessPiece positionPiece:i];
-            
-            [pieces setObject:chessPiece forKey:[NSString stringWithFormat:@"%i", i]];
-            
-            if ([piecesArrayToUse objectAtIndex:i] == WHITE_KING || [piecesArrayToUse objectAtIndex:i] == BLACK_KING) {
-                [chessPiece makePieceVisible:i];
-            }
-            
-            [self addSubview:chessPiece];
-        }
-    }
-}
-
 - (void) clearLayout {
     for (UIView *chessPiece in [self subviews]) {
         if ([chessPiece isKindOfClass:[ChessPiece class]]) {
@@ -94,22 +70,27 @@
 }
 
 - (void) refreshLayout: (ChessBoardLayout *)chessBoardLayout revealedPieces: (NSMutableArray *)revealedPieces {
+    
+    [self clearLayout];
+    
     ChessPiece *chessPiece;
+    
+    piecesArrayToUse = [chessBoardLayout finalLayoutPositions];
     
     for (unsigned int i=0; i<CHESS_BLOCKS; i++) {
         if ([piecesArrayToUse objectAtIndex:i] != EMPTY) {
+            chessPiece = [[[ChessPiece alloc] initWithFrame:CGRectMake(0, 0, SQUARE_SIZE, SQUARE_SIZE)] initWithPiece:[piecesArrayToUse objectAtIndex:i]];
+            [chessPiece positionPiece:i];
             
-            chessPiece = [piecesArrayToUse objectAtIndex:i];
+            [pieces setObject:chessPiece forKey:[NSString stringWithFormat:@"%i", i]];
             
-            if ([piecesArrayToUse objectAtIndex:i] == WHITE_KING || [piecesArrayToUse objectAtIndex:i] == BLACK_KING) {
+            if ([revealedPieces containsObject:[piecesArrayToUse objectAtIndex:i]]) {
                 
-                [[pieces objectForKey:[NSString stringWithFormat:@"%i", i]] setHidden:NO];
-                
-            } else if ([revealedPieces containsObject:[NSString stringWithFormat:@"%i", i]]) {
-                
-                [[pieces objectForKey:[NSString stringWithFormat:@"%i", i]] setHidden:NO];
+                [chessPiece makePieceVisible:i];
                 
             }
+            
+            [self addSubview:chessPiece];
         }
     }
 }
@@ -129,8 +110,9 @@
         [boardBlocks addObject:view];
     }
     
-    UIImageView *existingBlockImageView, *newBlockImageView;
-    UIImage *firstSquareImage, *nextSquareImage;
+    UIButton *existingBlockImageView, *newBlockImageView;
+    NSString *firstSquareImage, *nextSquareImage;
+    ChessBlock *chessBlock;
     CGRect frame;
     
     for (int i=0; i<CHESS_BLOCKS; i++) {
@@ -142,41 +124,43 @@
             
             if ([blockNumbers containsObject:[NSString stringWithFormat:@"%i", i]]) {
                 if (removeHighlighting) {
-                    firstSquareImage = [UIImage imageNamed:@"dark-square.png"];
-                    nextSquareImage = [UIImage imageNamed:@"light-square.png"];
+                    firstSquareImage = @"dark-square.png";
+                    nextSquareImage = @"light-square.png";
                 } else {
-                    firstSquareImage = [UIImage imageNamed:@"dark-square-highlighted.png"];
-                    nextSquareImage = [UIImage imageNamed:@"light-square-highlighted.png"];
+                    firstSquareImage = @"dark-square-highlighted.png";
+                    nextSquareImage = @"light-square-highlighted.png";
                 }
             } else {
-                firstSquareImage = [UIImage imageNamed:@"dark-square.png"];
-                nextSquareImage = [UIImage imageNamed:@"light-square.png"];
+                firstSquareImage = @"dark-square.png";
+                nextSquareImage = @"light-square.png";
             }
             
         } else {
             
             if ([blockNumbers containsObject:[NSString stringWithFormat:@"%i", i]]) {
                 if (removeHighlighting) {
-                    firstSquareImage = [UIImage imageNamed:@"light-square.png"];
-                    nextSquareImage = [UIImage imageNamed:@"dark-square.png"];
+                    firstSquareImage = @"light-square.png";
+                    nextSquareImage = @"dark-square.png";
                 } else {
-                    firstSquareImage = [UIImage imageNamed:@"light-square-highlighted.png"];
-                    nextSquareImage = [UIImage imageNamed:@"dark-square-highlighted.png"];
+                    firstSquareImage = @"light-square-highlighted.png";
+                    nextSquareImage = @"dark-square-highlighted.png";
                 }
             } else {
-                firstSquareImage = [UIImage imageNamed:@"light-square.png"];
-                nextSquareImage = [UIImage imageNamed:@"dark-square.png"];
+                firstSquareImage = @"light-square.png";
+                nextSquareImage = @"dark-square.png";
             }
             
         }
         
+        chessBlock = [[ChessBlock alloc] init];
+        
         if (columnNumber % 2) {
             
-            newBlockImageView = [[UIImageView alloc] initWithImage:firstSquareImage];
+            newBlockImageView = [chessBlock initBlockWithImage:firstSquareImage];
             
         } else {
             
-            newBlockImageView = [[UIImageView alloc] initWithImage:nextSquareImage];
+            newBlockImageView = [chessBlock initBlockWithImage:nextSquareImage];
             
         }
         
@@ -194,6 +178,10 @@
             [squareBlocks addSubview:newBlockImageView];
         }
     }  
+}
+
+- (NSMutableArray *)getInitialRevealedPieces {
+    return [[NSMutableArray alloc] initWithObjects:WHITE_KING, BLACK_KING, nil];
 }
 
 - (id)initWithFrame:(CGRect)frame

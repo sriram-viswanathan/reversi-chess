@@ -16,7 +16,7 @@
 
 - (id) initWithPiece: (NSString *)type {
     
-    //self.hidden = YES;
+    self.hidden = YES;
     
     pieceType = type;
     
@@ -77,11 +77,11 @@
     UIImage *pieceImage = [UIImage imageNamed:pieceImagePath];
     [self setBackgroundImage:pieceImage forState:UIControlStateNormal];
     
-    [self addTarget:self action:@selector(draggedOut: withEvent: ) forControlEvents:UIControlEventTouchDragOutside | UIControlEventTouchDragInside];
-    
+    //[self addTarget:self action:@selector(lifted: withEvent: ) forControlEvents:UIControlEventTouchDown];
+    //[self addTarget:self action:@selector(draggedOut: withEvent: ) forControlEvents:UIControlEventTouchDragOutside | UIControlEventTouchDragInside];
     [self addTarget:self action:@selector(dropped: withEvent: ) forControlEvents:UIControlEventTouchUpInside];
     
-    [self addTarget:self action:@selector(lifted: withEvent: ) forControlEvents:UIControlEventTouchDown];
+
     
     return self;
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE1D418D15720F4700F450C9 /* light-square-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1D418B15720F4700F450C9 /* light-square-highlighted.png */; };
 		CE1D418F15720F7C00F450C9 /* dark-square-highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = CE1D418E15720F7C00F450C9 /* dark-square-highlighted.png */; };
+		CE6EFDB4158632C200C815D5 /* ChessBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EFDB3158632C200C815D5 /* ChessBlock.m */; };
 		CE6F2AFE1567ACD700DC2222 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6F2AFD1567ACD700DC2222 /* UIKit.framework */; };
 		CE6F2B001567ACD700DC2222 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6F2AFF1567ACD700DC2222 /* Foundation.framework */; };
 		CE6F2B021567ACD700DC2222 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6F2B011567ACD700DC2222 /* CoreGraphics.framework */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		CE1D418B15720F4700F450C9 /* light-square-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "light-square-highlighted.png"; sourceTree = "<group>"; };
 		CE1D418E15720F7C00F450C9 /* dark-square-highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dark-square-highlighted.png"; sourceTree = "<group>"; };
+		CE6EFDB2158632C200C815D5 /* ChessBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessBlock.h; sourceTree = "<group>"; };
+		CE6EFDB3158632C200C815D5 /* ChessBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChessBlock.m; sourceTree = "<group>"; };
 		CE6F2AF91567ACD700DC2222 /* Chess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6F2AFD1567ACD700DC2222 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CE6F2AFF1567ACD700DC2222 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -137,6 +140,8 @@
 				CE6F2B2A15680E2000DC2222 /* ChessBoardLayout.m */,
 				CE6F2B26156808B300DC2222 /* ChessPiece.h */,
 				CE6F2B27156808B300DC2222 /* ChessPiece.m */,
+				CE6EFDB2158632C200C815D5 /* ChessBlock.h */,
+				CE6EFDB3158632C200C815D5 /* ChessBlock.m */,
 				CE6F2B041567ACD700DC2222 /* Supporting Files */,
 			);
 			path = Chess;
@@ -272,6 +277,7 @@
 				CE6F2B28156808B300DC2222 /* ChessPiece.m in Sources */,
 				CE6F2B2B15680E2000DC2222 /* ChessBoardLayout.m in Sources */,
 				CE6F2B4A1568C57600DC2222 /* ChessConstants.m in Sources */,
+				CE6EFDB4158632C200C815D5 /* ChessBlock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,8 @@
     ChessBoardLayout *chessBoardLayout;
     
     NSMutableArray *revealedPieces;
+    NSString *selectedPiece;
+    NSArray *possibleMoves;
     
     IBOutlet UIView *boardContainer;
     IBOutlet UIButton *randomizeButton;

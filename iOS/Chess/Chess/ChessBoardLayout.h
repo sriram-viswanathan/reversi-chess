@@ -13,6 +13,8 @@
     NSMutableArray *chessPiecesRandomizedPositions;
     
     NSMutableArray *finalLayoutPositions;
+    
+    NSArray *revealedPiecesInLayout;
 }
 
 @property (nonatomic, retain) NSMutableArray *chessPiecesDefaultPositions;
@@ -33,9 +35,10 @@
 - (int) randomizeBlackPawnPosition;
 
 - (NSMutableDictionary *)getRowColumnNumber: (int) blockNumber;
-- (BOOL) isOppositionPiece: (NSString *)currentPiece targetBlockNumber: (int)targetBlockNumber;
+- (BOOL) isEnemyPiecePiece: (NSString *)currentPiece targetBlockNumber: (int)targetBlockNumber;
+- (BOOL) isBlockEmpty: (NSString *)currentPiece targetBlockNumber: (int)targetBlockNumber;
 
-- (NSMutableArray *) getPossibleMoves: (NSString *)currentPiece blockNumber:(int) blockNumber;
+- (NSMutableArray *) getPossibleMoves: (NSString *)currentPiece blockNumber:(int) blockNumber revealedPieces:(NSArray *)revealedPieces;
 - (NSMutableArray *) getPossibleRookMoves: (NSString *) currentPiece blockNumber:(int) blockNumber;
 - (NSMutableArray *) getPossibleKnightMoves: (NSString *) currentPiece blockNumber:(int) blockNumber;
 - (NSMutableArray *) getPossibleBishopMoves: (NSString *) currentPiece blockNumber:(int) blockNumber;
@@ -43,5 +46,7 @@
 - (NSMutableArray *) getPossibleKingMoves: (NSString *) currentPiece blockNumber:(int) blockNumber;
 - (NSMutableArray *) getPossibleWhitePawnMoves: (NSString *) currentPiece blockNumber:(int) blockNumber;
 - (NSMutableArray *) getPossibleBlackPawnMoves: (NSString *) currentPiece blockNumber:(int) blockNumber;
+
+- (void) movePiece: (NSString *)currentPiece toBlockNumber: (int)targetBlockNumber;
 
 @end

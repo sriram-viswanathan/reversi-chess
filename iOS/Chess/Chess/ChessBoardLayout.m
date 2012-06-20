@@ -422,7 +422,7 @@
     return rowCol;
 }
 
-- (BOOL) isOppositionPiece: (NSString *)currentPiece targetBlockNumber: (int)targetBlockNumber {
+- (BOOL) isEnemyPiecePiece: (NSString *)currentPiece targetBlockNumber: (int)targetBlockNumber {
     
     NSArray *whitePieces = [[NSArray alloc] initWithObjects:WHITE_KING, WHITE_QUEEN, WHITE_BISHOP_ON_WHITE, WHITE_BISHOP_ON_BLACK, WHITE_KNIGHT_1, WHITE_KNIGHT_2, WHITE_ROOK_1, WHITE_ROOK_2, WHITE_PAWN_1, WHITE_PAWN_2, WHITE_PAWN_3, WHITE_PAWN_4, WHITE_PAWN_5, WHITE_PAWN_6, WHITE_PAWN_7, WHITE_PAWN_8, nil];
     
@@ -449,8 +449,19 @@
     return NO;
 }
 
+- (BOOL) isBlockEmpty: (NSString *)currentPiece targetBlockNumber: (int)targetBlockNumber {
+    
+    if ([finalLayoutPositions objectAtIndex:targetBlockNumber] == EMPTY) {
+        return YES;
+    }
 
-- (NSMutableArray *) getPossibleMoves: (NSString *)currentPiece blockNumber:(int) blockNumber {
+    return NO;
+}
+
+
+- (NSMutableArray *) getPossibleMoves: (NSString *)currentPiece blockNumber:(int) blockNumber revealedPieces:(NSArray *)revealedPieces {
+    
+    revealedPiecesInLayout = revealedPieces;
     
     NSArray *whitePawns = [[NSArray alloc] initWithObjects:WHITE_PAWN_1, WHITE_PAWN_2, WHITE_PAWN_3, WHITE_PAWN_4, WHITE_PAWN_5, WHITE_PAWN_6, WHITE_PAWN_7, WHITE_PAWN_8, nil];
     
@@ -459,15 +470,13 @@
     // find the current block number
     int currentPiecePosition = 0;//blockNumber;
     
-
     for (int i=0; i<CHESS_BLOCKS; i++) {
         
         if ([finalLayoutPositions objectAtIndex:i] == currentPiece) {
             currentPiecePosition = i;
         }
     }
-
-    
+        
     if (currentPiece == WHITE_ROOK_1) {
         
         return [self getPossibleRookMoves:WHITE_ROOK_1 blockNumber:currentPiecePosition];
@@ -564,10 +573,15 @@
             
             if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY) {
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
-            } else if ([self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+            } else if ([self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 i = top; // loop breaking condition
             } else {
+                
+                if (![revealedPiecesInLayout containsObject:[finalLayoutPositions objectAtIndex:requiredIndex]]) {
+                    [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+                }
+                
                 i = top; // loop breaking condition
             }
             
@@ -581,10 +595,15 @@
             
             if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY) {
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
-            } else if ([self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+            } else if ([self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 i = bottom; // loop breaking condition
             } else {
+                
+                if (![revealedPiecesInLayout containsObject:[finalLayoutPositions objectAtIndex:requiredIndex]]) {
+                    [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+                }
+                
                 i = bottom; // loop breaking condition
             }
             
@@ -598,10 +617,15 @@
             
             if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY) {
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
-            } else if ([self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+            } else if ([self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 i = left; // loop breaking condition
             } else {
+                
+                if (![revealedPiecesInLayout containsObject:[finalLayoutPositions objectAtIndex:requiredIndex]]) {
+                    [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+                }
+                
                 i = left; // loop breaking condition
             }
         }
@@ -614,10 +638,15 @@
             
             if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY) {
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
-            } else if ([self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+            } else if ([self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 i = right; // loop breaking condition
             } else {
+                
+                if (![revealedPiecesInLayout containsObject:[finalLayoutPositions objectAtIndex:requiredIndex]]) {
+                    [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+                }
+                
                 i = right; // loop breaking condition
             }
         }
@@ -719,7 +748,8 @@
         requiredIndex = [index intValue];
         
         if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY
-            || [self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+            || [self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]
+            || ![revealedPiecesInLayout containsObject:[finalLayoutPositions objectAtIndex:requiredIndex]]) {
             
             [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
             
@@ -765,13 +795,18 @@
                 
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 
-            } else if ([self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+            } else if ([self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
                 
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 
                 rowNumber = top; //loop breaking condition
                 
             } else {
+                
+                if (![revealedPiecesInLayout containsObject:[finalLayoutPositions objectAtIndex:requiredIndex]]) {
+                    [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+                }
+                
                 rowNumber = top; //loop breaking condition
             }
         }
@@ -805,13 +840,18 @@
                 
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 
-            } else if ([self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+            } else if ([self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
                 
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 
                 rowNumber = top; //loop breaking condition
                 
             } else {
+                
+                if (![revealedPiecesInLayout containsObject:[finalLayoutPositions objectAtIndex:requiredIndex]]) {
+                    [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+                }
+                
                 rowNumber = top; //loop breaking condition
             }
         }
@@ -844,13 +884,18 @@
                 
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 
-            } else if ([self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+            } else if ([self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
                 
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 
                 rowNumber = bottom; //loop breaking condition
                 
             } else {
+                
+                if (![revealedPiecesInLayout containsObject:[finalLayoutPositions objectAtIndex:requiredIndex]]) {
+                    [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+                }
+                
                 rowNumber = bottom; //loop breaking condition
             }
         }
@@ -883,13 +928,18 @@
                 
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 
-            } else if ([self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+            } else if ([self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
                 
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 
                 rowNumber = bottom; //loop breaking condition
                 
             } else {
+                
+                if (![revealedPiecesInLayout containsObject:[finalLayoutPositions objectAtIndex:requiredIndex]]) {
+                    [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+                }
+                
                 rowNumber = bottom; //loop breaking condition
             }
         }
@@ -911,7 +961,7 @@
 }
 
 - (NSMutableArray *) getPossibleKingMoves: (NSString *) currentPiece blockNumber:(int) blockNumber {
-    
+        
     NSMutableArray *returnVal = [[NSMutableArray alloc] init];
     
     NSMutableDictionary *rowCol = [self getRowColumnNumber:blockNumber];
@@ -948,10 +998,26 @@
             
             if (blockNumber != requiredIndex) {
                 if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY
-                    || [self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+                    || [self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
                     
                     [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                     
+                }
+                
+                if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY) {
+                    
+                    [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+                    
+                } else if ([self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
+                    
+                    [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+                    
+                } else {
+                    if (![revealedPiecesInLayout containsObject:[finalLayoutPositions objectAtIndex:requiredIndex]]) {
+                        
+                        [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+                        
+                    }
                 }
             }
         }
@@ -987,29 +1053,26 @@
         /**
          One block move straight
          */
-        requiredIndex = ((newRow) * CHESS_ROW_COUNT) + columnNumber;
+
+        requiredIndex = (newRow * CHESS_ROW_COUNT) + columnNumber;        
         if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY) {
-            requiredIndex = (newRow * CHESS_ROW_COUNT) + columnNumber;
             
-            if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY) {
+            [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+            
+            /**
+             Two block move straight
+             */
+            if ([defaultPositionBlockNumbers containsObject:[NSString stringWithFormat:@"%i", blockNumber]]) {
                 
-                [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+                requiredIndex = ((newRow + 1) * CHESS_ROW_COUNT) + newColumn;
                 
-                /**
-                 Two block move straight
-                 */
-                if ([defaultPositionBlockNumbers containsObject:[NSString stringWithFormat:@"%i", blockNumber]]) {
+                if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY) {
                     
-                    requiredIndex = ((newRow + 1) * CHESS_ROW_COUNT) + newColumn;
+                    [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                     
-                    if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY) {
-                        
-                        [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
-                        
-                    }
                 }
-                
             }
+            
         }
         
         /**
@@ -1019,7 +1082,7 @@
         if (newColumn >= 0) {
             requiredIndex = (newRow * CHESS_ROW_COUNT) + newColumn;
             
-            if ([self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+            if ([self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
                 
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 
@@ -1034,7 +1097,7 @@
             
             requiredIndex = (newRow * CHESS_ROW_COUNT) + newColumn;
             
-            if ([self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+            if ([self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
                 
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 
@@ -1070,30 +1133,27 @@
         /**
          One block move straight
          */
-        requiredIndex = ((newRow) * CHESS_ROW_COUNT) + columnNumber;
+        requiredIndex = (newRow * CHESS_ROW_COUNT) + columnNumber;
         if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY) {
-            requiredIndex = (newRow * CHESS_ROW_COUNT) + columnNumber;
             
-            if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY) {
+            [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+            
+            /**
+             Two block move straight
+             */
+            if ([defaultPositionBlockNumbers containsObject:[NSString stringWithFormat:@"%i", blockNumber]]) {
                 
-                [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
+                requiredIndex = ((newRow - 1) * CHESS_ROW_COUNT) + newColumn;
                 
-                /**
-                 Two block move straight
-                 */
-                if ([defaultPositionBlockNumbers containsObject:[NSString stringWithFormat:@"%i", blockNumber]]) {
+                if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY) {
                     
-                    requiredIndex = ((newRow - 1) * CHESS_ROW_COUNT) + newColumn;
+                    [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                     
-                    if ([finalLayoutPositions objectAtIndex:requiredIndex] == EMPTY) {
-                        
-                        [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
-                        
-                    }
                 }
-                
             }
+            
         }
+
         
         /**
          One block diagonal-left move, only if opposite piece is there
@@ -1102,7 +1162,7 @@
         if (newColumn >= 0) {
             requiredIndex = (newRow * CHESS_ROW_COUNT) + newColumn;
             
-            if ([self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+            if ([self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
                 
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 
@@ -1117,7 +1177,7 @@
             
             requiredIndex = (newRow * CHESS_ROW_COUNT) + newColumn;
             
-            if ([self isOppositionPiece:currentPiece targetBlockNumber:requiredIndex]) {
+            if ([self isEnemyPiecePiece:currentPiece targetBlockNumber:requiredIndex]) {
                 
                 [returnVal addObject:[NSString stringWithFormat:@"%i", requiredIndex]];
                 
@@ -1127,6 +1187,15 @@
     }
     
     return returnVal;
+}
+
+- (void) movePiece: (NSString *)currentPiece toBlockNumber: (int)targetBlockNumber {
+    
+    int currentPiecePosition = [finalLayoutPositions indexOfObject:currentPiece];
+    
+    [finalLayoutPositions replaceObjectAtIndex:currentPiecePosition withObject:EMPTY];
+    [finalLayoutPositions replaceObjectAtIndex:targetBlockNumber withObject:currentPiece];
+    
 }
 
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ChessConstants.h"
 #import "ChessBoardLayout.h"
+#import "ChessBlock.h"
 
 @interface ChessBoardView : UIView {
     UIView *squareBlocks;
@@ -17,10 +18,10 @@
     NSMutableArray *piecesArrayToUse;
 }
 
-- (void) initLayout: (ChessBoardLayout *)chessBoardLayout randomizePieces:(BOOL) randomizePieces;
 - (void) clearLayout;
 - (void) refreshLayout: (ChessBoardLayout *)chessBoardLayout revealedPieces: (NSMutableArray *)revealedPieces;
 - (void) highlightBlocks: (NSArray *)blockNumbers removeHighlighting: (BOOL) removeHighlighting;
+- (NSMutableArray *)getInitialRevealedPieces;
 
 
 @end
